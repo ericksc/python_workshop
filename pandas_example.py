@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 list_dict = [{'points': 50, 'time': '5:00', 'year': 2010},
              {'points': 25, 'time': '6:00', 'month': "february"},
@@ -46,6 +47,12 @@ remove_element_on_list('year', my_list)
 sub_my_df = get_sub_dataframe(df, my_list)
 
 
+df = pd.DataFrame({'a': np.arange(3),
+                       'b': np.random.rand(3)})
 
+def func(row):
+    return row['a'] + row['b']
+
+df.apply(func, axis=1)
 
 print('end')
