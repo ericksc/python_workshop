@@ -47,8 +47,9 @@ remove_element_on_list('year', my_list)
 sub_my_df = get_sub_dataframe(df, my_list)
 
 
-df = pd.DataFrame({'a': np.arange(3),
-                       'b': np.random.rand(3)})
+df = pd.DataFrame({'a': np.arange(3), 'b': np.random.rand(3), 'c': np.random.rand(3)})
+
+my_col_list = get_list_of_columns_on_dataframe(df)
 
 def func(row):
     return row['a'] + row['b']
