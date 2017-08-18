@@ -24,12 +24,17 @@ def compare_listcomp(x, y):
 def compare_intersect(x, y):
     return frozenset(x).intersection(y)
 
+@speed_test
+def returnNotMatches(a, b):
+    return [[x for x in a if x not in b], [x for x in b if x not in a]]
+
 # Comparing short lists
 a = [1, 2, 3, 4, 5]
 b = [9, 8, 7, 6, 5]
 compare_bitwise(a, b)
 compare_listcomp(a, b)
 compare_intersect(a, b)
+returnNotMatches(a, b)
 
 # Comparing longer lists
 import random
@@ -38,5 +43,6 @@ b = random.sample(range(100000), 10000)
 compare_bitwise(a, b)
 compare_listcomp(a, b)
 compare_intersect(a, b)
+returnNotMatches(a, b)
 
 print('end')
