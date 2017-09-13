@@ -28,6 +28,12 @@ def compare_intersect(x, y):
 def returnNotMatches(a, b):
     return [[x for x in a if x not in b], [x for x in b if x not in a]]
 
+@speed_test
+def returnNotMatches2(a, b):
+    a = set(a)
+    b = set(b)
+    return [list(b - a), list(a - b)]
+
 # Comparing short lists
 a = [1, 2, 3, 4, 5]
 b = [9, 8, 7, 6, 5]
@@ -35,6 +41,7 @@ compare_bitwise(a, b)
 compare_listcomp(a, b)
 compare_intersect(a, b)
 returnNotMatches(a, b)
+returnNotMatches2(a, b)
 
 # Comparing longer lists
 import random
@@ -44,5 +51,6 @@ compare_bitwise(a, b)
 compare_listcomp(a, b)
 compare_intersect(a, b)
 returnNotMatches(a, b)
+returnNotMatches2(a, b)
 
 print('end')
