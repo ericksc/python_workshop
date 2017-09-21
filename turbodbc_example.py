@@ -16,8 +16,8 @@ connection.commit()
 
 query_to_run = 'select * from Persons'
 cursor.execute(query_to_run)
-out = cursor.fetchall()
+table = cursor.fetchallarrow()
+df = table.to_pandas()
 
-print(str(out))
 
 print('Application end')
