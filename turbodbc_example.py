@@ -10,9 +10,14 @@ connection_string = "DRIVER={MySQL}; " \
 
 connection = connect(connection_string=connection_string)
 cursor = connection.cursor()
+
+cursor.execute("INSERT INTO Persons VALUES (42, 'alex')")
+connection.commit()
+
 query_to_run = 'select * from Persons'
 cursor.execute(query_to_run)
 out = cursor.fetchall()
 
 print(str(out))
+
 print('Application end')
